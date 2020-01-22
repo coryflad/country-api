@@ -1,36 +1,25 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Country Facts</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-    <h1>Country API practice</h1>
-
-
+    <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1>Country Facts</h1>
     <form action="#" class="js-search-form">
-        <fieldset>
-            <legend>Search for country facts</legend>
-            <label for="query-country">Country:</label>
-            <input type="text" class="js-query" placeholder="france">
-            <button type="submit">Search</button>
-        </fieldset>
+      <span>Search for a country:</span>
+      <input type="text" class="js-query" placeholder="aruba">
+      <button type="submit">Search</button>
     </form>
-
-    <section id="js-search-results">
-    
-    </section>
-
-    <section class="hidden" id="js-error-message">
-
-    </section>
+    <div class="js-search-results">
+            
+    </div>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
