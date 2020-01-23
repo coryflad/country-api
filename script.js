@@ -33,10 +33,10 @@ function displaySearchData(data) {
         let HtmlOutput = '';
 
         for (let i = 0; i < data.length; i++) {
-            HtmlOutput += '<p>' + data[i].name + '</p></ br> '
-            HtmlOutput += '<p>' + data[i].population + '<p>'
-            HtmlOutput += '<p>' + data[i].capital + '<p>'
-            HtmlOutput += '<p>' + data[i].region + '<p>'
+            HtmlOutput += '<p>' + 'Name:' + data[i].name + '</p></ br> '
+            HtmlOutput += '<p>' + 'Population:' + data[i].population + '<p>'
+            HtmlOutput += '<p>' + 'Capital:' + data[i].capital + '<p>'
+            HtmlOutput += '<p>' + 'Region:' + data[i].region + '<p>'
 
             $('.js-search-results').html(HtmlOutput);
         }
