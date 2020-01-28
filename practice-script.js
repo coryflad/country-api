@@ -1,66 +1,66 @@
-'use script';
+'use strict';
 
-function useApi(searchTerm) {
 
-    console.log('getting country facts');
 
-    const url = `https://restcountries.eu/rest/v2/name/${searchTerm}`;
+function useApi(country) {
 
-    // print url to console
+    const url = `https://restcountries.eu/rest/v2/name/${country}`;
     console.log(url);
 
     fetch(url)
-    .then(response => {
-        if(response.ok) {
-            return response.json();
-        }
-        throw new Error(response.statusText);
-    })
-    .then(responseJson => displayData(responseJson))
-    .catch(err => {
-        console.log(err);
-    });
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => displayData(responseJson))
+        .catch(err => {
+            console.log(err);
+        });
 }
 
-function displayData(data) {
+function displayData(responseJson) {
 
-    // ensure url is functioning as intended
-    console.log(data);
-    console.log(data[0].name);
+    console.log(responseJson);
+    console.log(responseJson[0].name);
 
-    if(data.length == 0) {
-        alert ('no country found')
+    if (responseJson.length == 0) {
+        alert('no results');
     } else {
-        let HtmlOutput = '';
+        let HmtlOutput = '';
+        for (let i = 0; i < responseJson.length; i++)
+            for (let j = 0; i < responseJson.length; i++) {
+                HmtlOutput += `
+        <section>
+        <p>Country Name:${responseJson[i].name}</p>
+        <p>Currency:${responseJson[i].currencies[j].name}</p>
+        </section>
+        `;
 
-        for (let i = 0; i < data.length; i++) {
-            HtmlOutput += '<p>' + 'Name:' + data[i].name + '</p></ br> '
-            HtmlOutput += '<p>' + 'Population:' + data[i].population + '<p>'
-            HtmlOutput += '<p>' + 'Capital:' + data[i].capital + '<p>'
-            HtmlOutput += '<p>' + 'Region:' + data[i].region + '<p>'
-            HtmlOutput += '<p>' + 'Currency:' + data[i].currencies[i].name + '<p>'
+                $('.js-search-results').html(HmtlOutput);
+            }
 
-            $('.js-search-results').html(HtmlOutput);
-        }
     }
-
-
-
 }
+
 
 function watchSubmit() {
 
-    $('.js-search-form').submit(event => {
+    $('.js-search-form').submit(e => {
+        e.preventDefault();
 
-        event.preventDefault();
+        let country = $('.js-query').val();
+        console.log(country);
 
-        let query = $('.js-query').val();
-        if (query == '') {
-           alert('plesae enter country name'); 
+        if (country == '') {
+            alert('please enter country name');
         } else {
-            useApi(query);
+            useApi(country);
         }
     });
+
 }
 
 $(watchSubmit);
+
