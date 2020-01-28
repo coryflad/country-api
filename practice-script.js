@@ -36,7 +36,7 @@ function displayData(responseJson) {
         <p>Country Name:${responseJson[i].name}</p>
         <p>Currency:${responseJson[i].currencies[j].name}</p>
         <img src=${responseJson[i].flag}>
-        <p>Alternative Spelling:${responseJson[i].altSpellings[j]}</p>
+        <p>Alternative Spelling:${responseJson[i].altSpellings[2]}</p>
         </section>
         `;
 
