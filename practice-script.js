@@ -30,11 +30,13 @@ function displayData(responseJson) {
     } else {
         let HmtlOutput = '';
         for (let i = 0; i < responseJson.length; i++)
-            for (let j = 0; i < responseJson.length; i++) {
+            for (let j = 0; j < responseJson.length; i++) {
                 HmtlOutput += `
         <section>
         <p>Country Name:${responseJson[i].name}</p>
         <p>Currency:${responseJson[i].currencies[j].name}</p>
+        <img src=${responseJson[i].flag}>
+        <p>Alternative Spelling:${responseJson[i].altSpellings[j]}</p>
         </section>
         `;
 
